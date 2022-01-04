@@ -1,0 +1,30 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border: solid rgb(207, 199, 199);
+	background-image: url(gif.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 10%;
+}
+
+#feliz {
+	color: rgb(207, 199, 199);
+	text-align: center;
+	margin-top: 15px;
+	font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+
+#fotos {
+	height: 490px;
+	width: 490px;
+}
+
+#text {
+	color: rgb(207, 199, 199);
+	font-family: Comic Sans, Comic Sans MS, cursive;
+	text-align: center;
+}
