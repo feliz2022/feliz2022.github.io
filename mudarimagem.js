@@ -31,7 +31,7 @@ function changeDate() {
   if (data < 15) {
     mesdia["dia"] = "menor" 
     return mesdia["dia"]
-  } else if (data > 15) {
+  } else if (data => 15) {
     mesdia["dia"] = "maior"
     return mesdia["dia"]
   }
