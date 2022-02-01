@@ -39,89 +39,32 @@ function changeDate() {
 
 function changeMonth() {
   let mes = getMonth()
-  if (mes == "0") {
-    mesdia["mes"] = "janeiro"
-  } else if (mes == "1") {
-    mesdia["mes"] = "fevereiro"
-  } else if (mes == "2") {
-    mesdia["mes"] = "março"
-  } else if (mes == "3") {
-    mesdia["mes"] = "abril"
-  } else if (mes == "4") {
-    mesdia["mes"] = "maio"
-  } else if (mes == "5") {
-    mesdia["mes"] = "junho"
-  } else if (mes == "6") {
-    mesdia["mes"] = "julho"
-  } else if (mes == "7") {
-    mesdia["mes"] = "agosto"
-  } else if (mes == "8") {
-    mesdia["mes"] = "setembro"
-  } else if (mes == "9") {
-    mesdia["mes"] = "outubro"
-  } else if (mes == "10") {
-    mesdia["mes"] = "novembro"
-  } else if (mes == "11") {
-    mesdia["mes"] = "dezembro"
+  for (let i = 0; i < 12; i++) {
+    if (mes == i) {
+      mesdia["mes"] = i
+      return mesdia["mes"]
+    }
   }
 }
 
 function changeImage() {
-  var img = document.getElementById("fotos");
+  let img = document.getElementById("fotos");
   if (mesdia["dia"] == "menor") {
-    if (mesdia["mes"] == "janeiro") {
-      img.src = "jan.png"
-    } else if (mesdia["mes"] == "fevereiro") {
-      img.src = "fev.png"
-    } else if (mesdia["mes"] == "marco") {
-      img.src = "mar.png"
-    } else if (mesdia["mes"] == "abril") {
-      img.src = "abr.png"
-    } else if (mesdia["mes"] == "maio") {
-      img.src = "mai.png"
-    } else if (mesdia["mes"] == "junho") {
-      img.src = "jun.png"
-    } else if (mesdia["mes"] == "julho") {
-      img.src = "jul.png"
-    } else if (mesdia["mes"] == "agosto") {
-      img.src = "ago.png"
-    } else if (mesdia["mes"] == "setembro") {
-      img.src = "set.png"
-    } else if (mesdia["mes"] == "outubro") { 
-      img.src = "out.png"
-    } else if (mesdia["mes"] == "novembro") {
-      img.src = "nov.png"
-    } else if (mesdia["mes"] == "dezembro") {
-      img.src = "dez.png"
+    for (let i = 0; i < 12; i++) {
+      if (mesdia["mes"] == i) {
+        img.src = "img/" + i + ".png";
+        return img.src;
+      }
     }
   } else if (mesdia["dia"] == "maior") {
-    if (mesdia["mes"] == "janeiro") {
-      img.src = "jan2.png"
-    } else if (mesdia["mes"] == "fevereiro") {
-      img.src = "fev2.png"
-    } else if (mesdia["mes"] == "março") {
-      img.src = "mar2.png"
-    } else if (mesdia["mes"] == "abril") {
-      img.src = "abr2.png"
-    } else if (mesdia["mes"] == "maio") {
-      img.src = "mai2.png"
-    } else if (mesdia["mes"] == "junho") {
-      img.src = "jun2.png"
-    } else if (mesdia["mes"] == "julho") {
-      img.src = "jul2.png"
-    } else if (mesdia["mes"] == "agosto") {
-      img.src = "ago2.png"
-    } else if (mesdia["mes"] == "setembro") {
-      img.src = "set2.png"
-    } else if (mesdia["mes"] == "outubro") { 
-      img.src = "out2.png"
-    } else if (mesdia["mes"] == "novembro") {
-      img.src = "nov2.png"
-    } else if (mesdia["mes"] == "dezembro") {
-      img.src = "dez2.png"
+    for (let i = 0; i < 12; i++) {
+      if (mesdia["mes"] == i) {
+        img.src = "img/"+i+"2"+".png";
+        return img.src;
+      }
     }
   }
-} 
+}
 
 function relogio() {
   let x = new Date();
@@ -137,6 +80,9 @@ function relogio() {
   }
   if (min < 10) {
     min = "0" + min;
+  }
+  if (sec < 10) {
+    sec = "0" + sec;
   }
   document.getElementById("text") .innerHTML = data + " de " + mes + " | " + hora + ":" + min + ":" + sec;
 }
