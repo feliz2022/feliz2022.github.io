@@ -1,89 +1,78 @@
-var mesdia = {
-  "dia": "dia",
-  "mes": "mes",
+function datas() {
+  let d = new Date();
+  this.dia = d.getDate();
+  this.mes = d.getMonth() + 1;
+  this.meses = ["Janeiro", "Fevereiro", "Mar&#231o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 }
 
-main(); 
-setInterval(main, 5000); 
+function change() {
+  this.Date = function () {
+    if (data.dia < 15) {
+        mesdia["dia"] = "menor";
+
+    } else if (data.dia >= 15) {
+        mesdia["dia"] = "maior";
+    }
+  };
+  this.Month = function () {
+    for (let i = 1; i <= 12; i++) {
+        if (data.mes == i) {
+            mesdia["mes"] = i;
+        }
+    }
+  };
+  this.Image = function () {
+    let img = document.getElementById("fotos");
+    if (mesdia["dia"] == "menor") {
+        for (let i = 0; i < 12; i++) {
+            if (mesdia["mes"] == i) {
+                img.src = "img/" + i + ".jpg";
+            }
+        }
+    }
+    else if (mesdia["dia"] == "maior") {
+        for (let i = 0; i < 12; i++) {
+            if (mesdia["mes"] == i) {
+                img.src = "img/" + i + "2" + ".png";
+            }
+        }
+    }
+};
+}
+
+function clock() {
+  let d = new Date();
+  let dia = d.getDate();
+  let mes = data.meses[d.getMonth()];
+  let horas = d.getHours();
+  let mins = d.getMinutes();
+  let secs = d.getSeconds();
+  if (horas < 10) {
+      horas = "0" + horas;
+  }
+  if (mins < 10) {
+      mins = "0" + mins;
+  }
+  if (secs < 10) {
+      secs = "0" + secs;
+  }
+  document.getElementById("text").innerHTML = dia + " " + "de" + " " + mes + " | " + horas + ":" + mins + ":" + secs;
+}
+
+var mesdia = {
+  "dia": "",
+  "mes": ""
+}
+var data = new datas();
+var chng = new change();
 
 function main() {
-  getDate();
-  getMonth();
-
-  changeDate();
-  changeMonth();
-
-  changeImage();
+  clock();
+  chng.Date();
+  chng.Month();
+  chng.Image();
 }
 
-function getDate() {
-  d = new Date();
-  return d.getDate();
-} 
-
-function getMonth() {
-  d = new Date();
-  return d.getMonth();
-} 
-
-function changeDate() {
-  let data = getDate()
-  if (data < 15) {
-    mesdia["dia"] = "menor" 
-    return mesdia["dia"]
-  } else if (data => 15) {
-    mesdia["dia"] = "maior"
-    return mesdia["dia"]
-  }
-} 
-
-function changeMonth() {
-  let mes = getMonth()
-  for (let i = 0; i < 12; i++) {
-    if (mes == i) {
-      mesdia["mes"] = i
-      return mesdia["mes"]
-    }
-  }
-}
-
-function changeImage() {
-  let img = document.getElementById("fotos");
-  if (mesdia["dia"] == "menor") {
-    for (let i = 0; i < 12; i++) {
-      if (mesdia["mes"] == i) {
-        img.src = "img/" + i + ".png";
-        return img.src;
-      }
-    }
-  } else if (mesdia["dia"] == "maior") {
-    for (let i = 0; i < 12; i++) {
-      if (mesdia["mes"] == i) {
-        img.src = "img/"+i+"2"+".png";
-        return img.src;
-      }
-    }
-  }
-}
-
-function relogio() {
-  let x = new Date();
-  let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-  let z = x.getMonth();
-  let mes = meses[z];
-  let data = x.getDate();
-  let hora = x.getHours();
-  let min = x.getMinutes();
-  let sec = x.getSeconds();
-  if (hora < 10) {
-    hora = "0" + hora;
-  }
-  if (min < 10) {
-    min = "0" + min;
-  }
-  if (sec < 10) {
-    sec = "0" + sec;
-  }
-  document.getElementById("text") .innerHTML = data + " de " + mes + " | " + hora + ":" + min + ":" + sec;
-}
-setInterval(relogio, 1000);
+main();
+clock()
+setInterval(main, 1000);
