@@ -26,7 +26,7 @@ function change() {
     if (mesdia["dia"] == "menor") {
         for (let i = 0; i < 12; i++) {
             if (mesdia["mes"] == i) {
-                img.src = "img/" + i + ".jpg";
+                img.src = "img/" + i + ".png";
             }
         }
     }
