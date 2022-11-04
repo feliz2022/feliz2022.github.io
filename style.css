@@ -1,14 +1,17 @@
+:root {
+	background-color: black;
+}
+
 body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	border: solid rgb(207, 199, 199);
 	background-image: url(gif.gif);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 10%;
-}
+}	
 
 #feliz {
 	color: rgb(207, 199, 199);
@@ -17,14 +20,24 @@ body {
 	font-family: Comic Sans, Comic Sans MS, cursive;
 }
 
-
 #fotos {
-	height: 490px;
-	width: 490px;
+	height: 400px;
+	width: 400px;
 }
 
-#text {
+#text, #progress {
 	color: rgb(207, 199, 199);
 	font-family: Comic Sans, Comic Sans MS, cursive;
 	text-align: center;
+}
+
+#barbox {
+	border: 1px solid white;
+	width: 490px;
+	height: 10px;
+}
+
+#bar {
+	height: 10px;
+	background-color: white;
 }
