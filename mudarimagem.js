@@ -3,6 +3,15 @@ function datas() {
   this.dia = d.getDate();
   this.mes = d.getMonth() + 1;
   this.meses = ["Janeiro", "Fevereiro", "Mar&#231o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+  // barra
+
+  var start = new Date(d.getFullYear(), 0, 0);
+  var diff = (d - start) + ((start.getTimezoneOffset() - d.getTimezoneOffset()) * 60 * 1000);
+  var oneDay = 1000 * 60 * 60 * 24;
+  var day = Math.floor(diff / oneDay);
+  this.dayoftheyear = day
+
 }
 
 function change() {
@@ -36,8 +45,16 @@ function change() {
                 img.src = "img/" + i + "2" + ".png";
             }
         }
-    }
-};
+      }
+    };
+    this.Bar = function() {
+      let bar = document.getElementById("bar")
+      let text = document.getElementById("progress")
+      let percentage = percent(data.dayoftheyear)
+      format = parseInt(percentage) + "%"
+      bar.style.width = format
+      text.innerHTML = format
+  }
 }
 
 function clock() {
@@ -66,13 +83,22 @@ var mesdia = {
 var data = new datas();
 var chng = new change();
 
+function percent(day) {
+  let x = day * 100
+  return y = x / 365
+}
+
+
 function main() {
+
   clock();
   chng.Date();
   chng.Month();
   chng.Image();
+  chng.Bar();
+
 }
 
 main();
-clock()
+clock();
 setInterval(main, 1000);
