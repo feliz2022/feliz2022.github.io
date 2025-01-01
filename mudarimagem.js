@@ -16,37 +16,63 @@ function datas() {
 
 function change() {
   this.Date = function () {
-    if (data.dia < 15) {
-        mesdia["dia"] = "menor";
+    mesdia["dia"] = data.dia >= 15 ? "maior" : "menor"
+  }
 
-    } else if (data.dia >= 15) {
-        mesdia["dia"] = "maior";
-    }
-  };
+  //   if (data.dia < 15) {
+  //       mesdia["dia"] = "menor";
+
+  //   } else if (data.dia >= 15) {
+  //       mesdia["dia"] = "maior";
+  //   }
+  // };
+  // deusolivre
+
+
   this.Month = function () {
-    for (let i = 1; i <= 12; i++) {
-        if (data.mes == i) {
-            mesdia["mes"] = i;
-        }
-    }
+
+    mesdia["mes"] = data.mes
+
+    // for (let i = 1; i <= 12; i++) {
+    //     if (data.mes == i) {
+    //         mesdia["mes"] = i;
+    //     }
+    // }
+    // abominaçao
+
+
   };
   this.Image = function () {
     let img = document.getElementById("fotos");
-    if (mesdia["dia"] == "menor") {
-        for (let i = 0; i < 12; i++) {
-            if (mesdia["mes"] == i) {
-                img.src = "img/" + i + ".png";
-            }
-        }
-    }
-    else if (mesdia["dia"] == "maior") {
-        for (let i = 0; i < 12; i++) {
-            if (mesdia["mes"] == i) {
-                img.src = "img/" + i + "2" + ".png";
-            }
-        }
+    switch (mesdia["dia"]) {
+      case "menor": {
+        img.src = "img/"+mesdia["mes"]+".png"
       }
-    };
+      case "maior": {
+        img.src = "img/"+mesdia["mes"]+"b.png"
+      }
+    }
+  }
+
+    // if (mesdia["dia"] == "menor") {
+    //     for (let i = 0; i < 12; i++) {
+    //         if (mesdia["mes"] == i) {
+    //             img.src = "img/" + i + ".png";
+    //         }
+    //     }
+    // }
+    // else if (mesdia["dia"] == "maior") {
+    //     for (let i = 0; i < 12; i++) {
+    //         if (mesdia["mes"] == i) {
+    //             img.src = "img/" + i + "2" + ".png";
+    //             console.log(i)
+    //         }
+    //     }
+    //   }
+    // };
+    //  ?????? QUE BOSTA È EESSA
+
+
     this.Bar = function() {
       let bar = document.getElementById("bar")
       let text = document.getElementById("progress")
@@ -80,6 +106,7 @@ var mesdia = {
   "dia": "",
   "mes": ""
 }
+
 var data = new datas();
 var chng = new change();
 
@@ -87,7 +114,6 @@ function percent(day) {
   let x = day * 100
   return y = x / 365
 }
-
 
 function main() {
 
